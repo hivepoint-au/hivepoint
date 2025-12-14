@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HivePoint - Healthcare Strategy & Transformation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .nav-left {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #000;
+        }
+        
+        .nav-right .cta {
+            background: #000;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 48px 48px;
+            text-align: left;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-images {
+            display: flex;
+            gap: 24px;
+            margin-top: 60px;
+        }
+        
+        .hero-image-main {
+            flex: 1;
+            max-width: 100%;
+            background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f7 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .hero-image-main img {
+            max-width: 100%;
+        }
+
+        .hero-image-phone {
+            width: 200px;
+            height: 400px;
+            background: #f5f5f5;
+            border-radius: 24px;
+            border: 12px solid #000;
+            margin-top: 50px;
+        }
+        
+        /* Trusted By Section */
+        .trusted {
+            text-align: center;
+            padding: 60px 48px;
+            background: #fafafa;
+        }
+        
+        .trusted p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-item {
+            width: 100px;
+            height: 40px;
+            background: #ddd;
+            border-radius: 8px;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            margin-bottom: 16px;
+        }
+        
+        .section-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-top: 48px;
+        }
+        
+        .benefit-card {
+            display: flex;
+            gap: 24px;
+        }
+                
+        .benefit-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .benefit-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        /* Feature Section */
+        .feature {
+            background: #fafafa;
+            padding: 80px 48px;
+        }
+        
+        .feature-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .feature-image {
+            height: 600px;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4b896 100%);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .feature-image img {
+            max-width: 100%; 
+              height: auto;    /* Maintains the image's aspect ratio to prevent distortion */
+  display: block;
+        }
+        
+        .feature-text h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            line-height: 1.3;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: start;
+            gap: 16px;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-number {
+            font-weight: 600;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .feature-list strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .feature-cta {
+            margin-top: 40px;
+        }
+        
+        .button-secondary {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        
+        /* Specs Section */
+        .specs {
+            background: #f2f2f2;
+            padding: 80px 48px;
+            margin: 0 auto;
+        }
+        
+        .specs-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+        
+        .specs-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #e5e5e5;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .spec-column {
+            background: #fff;
+            padding: 48px 32px;
+        }
+        
+        .spec-column.highlight {
+            background: #000;
+            color: #fff;
+        }
+        
+        .spec-header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .spec-column.highlight .spec-header {
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 0;
+            font-size: 14px;
+        }
+        
+        .check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4caf50;
+            flex-shrink: 0;
+        }
+        
+        .cross {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ccc;
+            flex-shrink: 0;
+        }
+        
+        /* Quote Section */
+        .quote {
+            padding: 80px 48px;
+            background: #fafafa;
+        }
+        
+        .quote-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .quote-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #c9ada7 0%, #9a8c98 100%);
+            border-radius: 16px;
+        }
+        
+        .quote-text blockquote {
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        .quote-author {
+            font-weight: 600;
+        }
+        
+        .quote-role {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Steps Section */
+        .steps {
+            padding: 80px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .steps h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 48px;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            text-align: left;
+        }
+        
+        .step-number {
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        
+        .step h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 48px;
+            sbackground: linear-gradient(135deg, #8a8e8d 0%, #484a49 100%);
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section .button-secondary {
+            border-radius: 8px;
+            border-color: #fff;
+            border-width: 2px;
+            border-style: solid;
+        }
+        
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 32px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 48px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            font-weight: 600;
+        }
+        
+        .footer-copy {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media (max-width: 968px) {
+            nav {
+                padding: 20px 24px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 60px 24px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero-images {
+                flex-direction: column;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .feature-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .specs-table {
+                grid-template-columns: 1fr;
+            }
+            
+            .quote-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <div class="logo">HivePoint</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#how-we-work">How We Work</a></li>
+                <li><a href="#people">People</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="#contact" class="cta">Get in Touch</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Leapfrog traditional<br>thinking in healthcare.</h1>
+        <div class="hero-images">
+            <div class="hero-image-main">
+                <img src="header.png" />
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="benefits">
+        <div class="section-header">
+            <div class="section-label">About</div>
+            <h2 class="section-title">Healthcare strategy and<br>transformations.</h2>
+            <p class="section-subtitle">HivePoint is a consultancy dedicated to healthcare strategy and transformations for sustainable growth. We seek to leapfrog the traditional thinking in healthcare and inspire bold visions backed by innovative strategies and operational excellence.</p>
+        </div>
+    </section>
+
+    <section id="expertise" class="benefits">
+        <div class="section-header">
+            <div class="section-label">Expertise</div>
+            <h2 class="section-title">Creating value through<br>strategic excellence.</h2>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-content">
+                    <h3>Strategic Planning</h3>
+                    <p>Designing and implementing strategic plans that fundamentally change the course of the organisation for sustainable growth and impact. Areas of expertise include translational research, private medical services and investment in adjacent services.</p>
+                </div>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-content">
+                    <h3>Business Transformation</h3>
+                    <p>Business transformations and change leadership, delivering improved financial returns coupled with clinical excellence and research and innovation. Reducing waste and noise and focusing on creating value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-we-work" class="feature">
+        <div class="feature-content">
+            <div class="feature-image"><img src="siegi.jpg" alt="Siegi Schmidmaier" /> </div>
+            <div class="feature-text">
+                <div class="section-label">How We Work</div>
+                <h2>A tailored approach to meet your needs.</h2>
+                <p style="color: #666; margin-bottom: 40px;">We provide consulting services and interim executive support. We provide a tailored approach to meet your needs.</p>
+                <div class="feature-cta">
+                    <a href="#contact" class="button-secondary">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="people" class="specs">
+        <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+            <div class="section-label">People</div>
+            <h2 class="section-title">Led by experienced<br>healthcare executives.</h2>
+        </div>
+
+        <div style="margin: 0 auto; padding: 60px; border-radius: 16px;">
+            <h3 style="font-size: 32px; font-weight: 600; margin-bottom: 16px;">Siegi Schmidmaier</h3>
+            <p style="color: #666; font-size: 16px; margin-bottom: 24px; font-weight: 500;">Founder, HivePoint</p>
+            
+            <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">Siegi has over 20 years experience in the healthcare sector, from frontline operations to executive leadership, CEO roles, and board directorships—spanning consulting, government, private sector, and not-for-profit organisations in healthcare.</p>
+            
+            <p style="color: #666; line-height: 1.8; margin-bottom: 32px;">Siegi is an executive leader with expertise in strategy, business development and business transformation.</p>
+
+            <div style="padding-top: 32px;">
+                <ul style="list-style: none;">
+                    <li style="padding: 12px 0; color: #666; line-height: 1.6;">• Strategic leadership roles as CEO Care 24-7, Executive Director Silverchain and Executive Director Peter MacCallum Cancer Centre.</li>
+                    <li style="padding: 12px 0; color: #666; line-height: 1.6;">• Led commercialisation and growth of translational research as Executive Director Strategy and Commercial, Peter MacCallum Cancer Centre.</li>
+                    <li style="padding: 12px 0; color: #666; line-height: 1.6;">• Led business transformations at Care 24-7 and RDNS Silverchain Group.</li>
+                </ul>
+
+                <p style="color: #666;">Siegi has a Master of Science from Humboldt University Berlin,  a Bachelor of Nursing, and  Graduate Diploma of Project Management.</p>
+
+                <p style="color: #666; margin-top: 24px; font-style: italic;">Known for creative strategies, fixing problems and rolling up her sleeves.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="cta-image"></div>
+        <h2>Ready to transform your organization?</h2>
+        <p>Let's discuss how HivePoint can help you achieve sustainable growth.</p>
+        <a href="mailto:contact@hivepoint.com" class="button-secondary">Get in Touch</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">HivePoint</div>
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#how-we-work">How We Work</a></li>
+                <li><a href="#people">People</a></li>
+            </ul>
+            <div class="footer-copy">© HivePoint. 2025 All Rights Reserved</div>
+        </div>
+    </footer>
+</body>
+</html>
